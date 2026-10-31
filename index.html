@@ -915,7 +915,7 @@
                     showToast("Username atau Password salah!", "error");
                 }
             } else {
-                showToast("Memverifikasi akun ke server...", "info");
+                showToast("Memverifikasi akun ke databse", "info");
                 try {
                     const response = await fetch(`${GAS_URL}?action=login&username=${encodeURIComponent(usr)}&password=${encodeURIComponent(pass)}`, {
                         method: 'POST'
@@ -1019,7 +1019,7 @@
                     <p>Buku ini dirancang khusus untuk memperkaya literasi akademik siswa di lingkungan LD4 LITBOOK. Melalui bab ini, Anda akan diajak menyelami materi ${bk.kategori} secara mendalam dengan metode interaktif.</p>
                     <p class="font-semibold text-slate-800 text-base mt-4 mb-2">RINGKASAN SINOPSIS</p>
                     <p>${bk.deskripsi || "Tidak ada deskripsi tambahan untuk buku cetak ini."}</p>
-                    <p class="mt-4 text-slate-600 italic">Selamat Membaca! Dokumen ini dilindungi enkripsi server. Distribusi ilegal tanpa izin akan mendapat sanksi akademik.</p>
+                    <p class="mt-4 text-slate-600 italic">Selamat Membaca! Dokumen ini dilindungi enkripsi database. Distribusi ilegal tanpa izin akan mendapat sanksi akademik.</p>
                 `;
             }
 
@@ -1299,7 +1299,7 @@
                     showToast("Sirkulasi sukses diperbarui! (Mode Demo)", "success");
                     renderAdminDashboard();
                 } else {
-                    showToast("Menyimpan status sirkulasi ke server...", "info");
+                    showToast("Menyimpan status sirkulasi ke database", "info");
                     try {
                         const response = await fetch(`${GAS_URL}?action=update_sirkulasi&payload=${encodeURIComponent(JSON.stringify(payload))}`, {
                             method: 'POST'
@@ -1369,7 +1369,7 @@
                 closeFormBukuModal();
                 renderAdminDashboard();
             } else {
-                showToast("Mengirim data buku ke server...", "info");
+                showToast("Mengirim data buku ke database", "info");
                 try {
                     const response = await fetch(`${GAS_URL}?action=tambah_buku&payload=${encodeURIComponent(JSON.stringify(payload))}`, {
                         method: 'POST'
@@ -1417,7 +1417,7 @@
                 closeFormAnggotaModal();
                 renderAdminDashboard();
             } else {
-                showToast("Mendaftarkan anggota ke server...", "info");
+                showToast("Mendaftarkan anggota ke database", "info");
                 try {
                     const response = await fetch(`${GAS_URL}?action=tambah_anggota&payload=${encodeURIComponent(JSON.stringify(payload))}`, {
                         method: 'POST'
@@ -1446,7 +1446,7 @@
                     showToast("Buku berhasil dihapus dari sistem! (Mode Demo)", "success");
                     renderAdminDashboard();
                 } else {
-                    showToast("Menghapus data buku dari server...", "info");
+                    showToast("Menghapus data buku dari database", "info");
                     try {
                         const response = await fetch(`${GAS_URL}?action=delete_buku&payload=${encodeURIComponent(JSON.stringify({id_buku: idBuku}))}`, {
                             method: 'POST'
@@ -1479,7 +1479,7 @@
                     showToast("Keanggotaan berhasil dihapus! (Mode Demo)", "success");
                     renderAdminDashboard();
                 } else {
-                    showToast("Menghapus akun dari server...", "info");
+                    showToast("Menghapus akun dari database", "info");
                     try {
                         const response = await fetch(`${GAS_URL}?action=delete_anggota&payload=${encodeURIComponent(JSON.stringify({username: username}))}`, {
                             method: 'POST'

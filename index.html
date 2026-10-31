@@ -646,7 +646,7 @@
             lucide.createIcons();
             const badge = document.getElementById('preview-badge');
             if (!APP_STATE.is_preview) {
-                badge.textContent = "Koneksi Live";
+                badge.textContent = "Live";
                 badge.className = "flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
                 fetchDataFromServer();
             } else {
